@@ -1,0 +1,29 @@
+# Build the image and tag it as "inventory-mgmt"
+docker build -t inventory-mgmt .
+
+# Run container, map port 8000 host → 8000 container
+docker run -p 8000:8000 shop-api
+
+# Run in background (detached mode)
+docker run -d -p 8000:8000 --name my-shop inventory-mgmt
+
+# See running containers
+docker ps
+
+# See logs of a running container
+docker logs my-shop
+
+# Stop a container
+docker stop my-shop
+
+# Remove a container
+docker rm my-shop
+
+# Remove the image
+docker rmi inventory-mgmt
+
+# Rebuild after code changes
+docker build -t inventory-mgmt . && docker run -p 8000:8000 inventory-mgmt
+
+# See the images
+docker images
