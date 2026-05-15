@@ -27,3 +27,11 @@ docker build -t inventory-mgmt . && docker run -p 8000:8000 inventory-mgmt
 
 # See the images
 docker images
+
+docker login
+# Enter your Docker Hub username and password
+
+# Format: username/imagename:version
+docker tag shop-api yourusername/shop-api:latest
+
+docker push yourusername/shop-api:latest
